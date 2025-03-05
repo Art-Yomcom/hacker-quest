@@ -1,0 +1,41 @@
+/* Общий стиль страницы */
+body {
+    background-color: black;
+    color: green;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Скрытие элементов до нужного момента */
+.hidden {
+    display: none;
+}
+
+/* Эффект "глюка" */
+.glitch {
+    font-size: 24px;
+    text-shadow: 0 0 5px red, 0 0 10px yellow;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 0 0 5px red, 0 0 10px yellow; }
+    50% { text-shadow: 0 0 5px green, 0 0 10px blue; }
+    100% { text-shadow: 0 0 5px red, 0 0 10px yellow; }
+}
+
+/* Стили для ввода */
+input {
+    background: black;
+    color: green;
+    border: 1px solid green;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Ошибка ввода */
+.error {
+    border-color: red;
+}
