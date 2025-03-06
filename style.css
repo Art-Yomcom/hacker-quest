@@ -1,3 +1,4 @@
+
 /* style.css */
 body {
     background-color: black;
@@ -8,8 +9,9 @@ body {
     position: relative;
 }
 .hidden { display: none; }
+
 .glitch {
-    font-size: 28px;
+    font-size: 36px;
     text-shadow: 0 0 5px red, 0 0 10px yellow;
     animation: glitch 1s infinite;
 }
@@ -18,12 +20,28 @@ body {
     50% { text-shadow: 0 0 5px green, 0 0 10px blue; }
     100% { text-shadow: 0 0 5px red, 0 0 10px yellow; }
 }
-input {
+
+#matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    z-index: -1;
+}
+
+button {
     background: black;
     color: green;
-    border: 1px solid green;
-    padding: 10px;
+    border: 2px solid green;
+    padding: 10px 20px;
     font-size: 18px;
-    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.3s;
 }
-.error { border-color: red; }
+button:active {
+    transform: scale(0.95);
+    background: darkgreen;
+}

@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="matrix-background"></div>
     <h1 id="main-title" class="glitch">ИГРА НАЧАЛАСЬ</h1>
     <p id="intro-text">Однажды ты оказался перед необычным испытанием.<br>
     Ты не пугайся, это не взлом, а лишь игра, <br>
     В которой тебе предстоит пройти путь к сюрпризу.<br>
-    Если <b>Цезарь</b> умел делать три дела, <br>
-    Тьюринг мог <b>дешифровать</b> секреты – ты тоже справишься!<br>
+    Если <span id="caesar-word">Цезарь</span> умел делать три дела, <br>
+    Тьюринг мог <span id="decrypt-word">дешифровать</span> секреты – ты тоже справишься!<br>
     <i>Ответ скрыт где-то рядом...</i></p>
     <input type="text" id="codeInput" placeholder="Введите ключ">
-    <button onclick="checkCode()">Проверить</button>
-    
+    <button id="checkButton" onclick="checkCode()">Проверить</button>
+
     <div id="caesarCipher" class="hidden">
-        <p>Расшифруй: "КЮКЗК ЮЙ ИЦБЙЗ НЙ ИРГЮ В ЛЗКЗ ПЙЙЮК" (дата: "ЛЛ.ГЖ.КККП")</p>
+        <p>"КЮКЗК ЮЙ ИЦБЙЗ НЙ ИРГЮ В ЛЗКЗ ПЙЙЮК" (дата: "ЛЛ.ГЖ.КККП")</p>
     </div>
-    
+
     <div id="binaryCode" class="hidden">
-        <p>Расшифруй двоичный код: <br> 01000100 01100101 01100011 01110010 01111001 01110000 01110100</p>
+        <p>01000100 01100101 01100011 01110010 01111001 01110000 01110100</p>
         <input type="text" id="binaryInput" placeholder="Введите ответ">
         <button onclick="checkBinary()">Проверить</button>
     </div>
