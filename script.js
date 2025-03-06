@@ -24,16 +24,22 @@ function checkCode() {
 
 function checkBinary() {
     let input = document.getElementById("binaryInput").value.trim().toUpperCase();
+    let button = document.getElementById("checkButton"); // Добавляем эту строку
     if (input === "DECRYPT") {
         document.getElementById("chatGPT").classList.remove("hidden");
     } else {
         button.classList.add("error");
+        setTimeout(() => button.classList.remove("error"), 2000); // Добавляем удаление ошибки через 2 секунды
     }
 }
 function checkChatGPT() {
-    let input = document.getElementById("chatInput").value.trim().toLowerCase();
-    if (input === "final-url.com") {
-        document.getElementById("final").classList.remove("hidden");
+    let input = document.getElementById("chatInput").value.trim().toLowerCase(); // Получаем ввод и приводим к нижнему регистру
+    let button = document.getElementById("checkButton"); // Находим кнопку
+    if (input === "final-url.com") { // Проверяем ввод
+        document.getElementById("final").classList.remove("hidden"); // Если правильно, показываем финальный блок
+    } else {
+        button.classList.add("error"); // Если неправильно, добавляем класс "error"
+        setTimeout(() => button.classList.remove("error"), 2000); // Убираем ошибку через 2 секунды
     }
 }
 
@@ -80,3 +86,7 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+// Вешаем обработчики на кнопки
+document.getElementById("checkButton").addEventListener("click", checkCode);
+document.querySelector("#binaryCode button").addEventListener("click", checkBinary);
+document.querySelector("#chatGPT button").addEventListener("click", checkChatGPT);
