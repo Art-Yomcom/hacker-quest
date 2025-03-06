@@ -1,4 +1,3 @@
-/* script.js */
 let incorrectAttempts = [];
 let visitCount = localStorage.getItem("visitCount") || 0;
 visitCount++;
@@ -14,7 +13,7 @@ document.getElementById("main-title").addEventListener("click", function() {
 function checkCode() {
     let input = document.getElementById("codeInput").value.trim().toUpperCase();
     let button = document.getElementById("checkButton");
-    if (input === "ОТВЕТ") {
+    if (input === "ОТВЕТ") { 
         document.getElementById("caesarCipher").classList.remove("hidden");
         document.getElementById("caesar-word").style.fontWeight = "bold";
         document.getElementById("decrypt-word").style.fontWeight = "bold";
