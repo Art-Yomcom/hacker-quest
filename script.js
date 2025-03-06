@@ -27,14 +27,20 @@ function checkBinary() {
     if (input === "DECRYPT") {
         document.getElementById("chatGPT").classList.remove("hidden");
     }
-}
+}   else {
+        button.classList.add("error");
+        setTimeout(() => button.classList.remove("error"), 3000);
+    }
 
 function checkChatGPT() {
     let input = document.getElementById("chatInput").value.trim().toLowerCase();
     if (input === "final-url.com") {
         document.getElementById("final").classList.remove("hidden");
     }
-}
+}   else {
+        button.classList.add("error");
+        setTimeout(() => button.classList.remove("error"), 3000);
+    }
 
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
