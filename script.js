@@ -16,8 +16,8 @@ function checkCode() {
         let decrypt = document.getElementById("decrypt-word");
 
         // Запускаем анимацию
-        caesar.style.animation = "highlight 5s forwards";
-        decrypt.style.animation = "highlight-decrypt 5s forwards";
+        caesar.style.animation = "highlight 60s forwards";
+        decrypt.style.animation = "highlight-decrypt 60s forwards";
     } else {
         button.classList.add("error");
         setTimeout(() => button.classList.remove("error"), 2000);
