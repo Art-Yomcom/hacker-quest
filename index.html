@@ -4,42 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ИГРА НАЧАЛАСЬ</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Подключение CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="glitch">ИГРА НАЧАЛАСЬ</h1>
+    <h1 id="main-title" class="glitch">ИГРА НАЧАЛАСЬ</h1>
     <p id="intro-text">Однажды ты оказался перед необычным испытанием.<br>
-    Ты не пугайся, это не взлом, а лишь игра,<br>
+    Ты не пугайся, это не взлом, а лишь игра, <br>
     В которой тебе предстоит пройти путь к сюрпризу.<br>
-    Если Цезарь умел делать три дела,<br>
-    Тьюринг мог дешифровать секреты – ты тоже справишься!</p>
-    
+    Если <b>Цезарь</b> умел делать три дела, <br>
+    Тьюринг мог <b>дешифровать</b> секреты – ты тоже справишься!<br>
+    <i>Ответ скрыт где-то рядом...</i></p>
     <input type="text" id="codeInput" placeholder="Введите ключ">
     <button onclick="checkCode()">Проверить</button>
-
+    
     <div id="caesarCipher" class="hidden">
-        <p>Расшифруй: "КЮКЗК ЮЙ ИЦБЙЗ НЙ ИРГЮ В ЛЗКЗ ПЙЙЮК" (дата: 11.03.2001)</p>
-        <input type="text" id="caesarInput" placeholder="Введите ответ">
-        <button onclick="checkCaesar()">Проверить</button>
+        <p>Расшифруй: "КЮКЗК ЮЙ ИЦБЙЗ НЙ ИРГЮ В ЛЗКЗ ПЙЙЮК" (дата: "ЛЛ.ГЖ.КККП")</p>
     </div>
-
-    <div id="morseCode" class="hidden">
-        <p>Расшифруй морзянку: <span>⛵ ⛵⛵ ⛵⛵⛵ | ⛵ ⛵⛵</span></p>
-        <input type="text" id="morseInput" placeholder="Введите ответ">
-        <button onclick="checkMorse()">Проверить</button>
+    
+    <div id="binaryCode" class="hidden">
+        <p>Расшифруй двоичный код: <br> 01000100 01100101 01100011 01110010 01111001 01110000 01110100</p>
+        <input type="text" id="binaryInput" placeholder="Введите ответ">
+        <button onclick="checkBinary()">Проверить</button>
     </div>
-
+    
     <div id="chatGPT" class="hidden">
         <p>Как говорил один мой друг - <code>decrypt: H3ll0_W0rld_42</code>, но а что там?</p>
+        <p>Что тебе ответил компьютерный друг?</p>
         <input type="text" id="chatInput" placeholder="Введите ответ">
         <button onclick="checkChatGPT()">Проверить</button>
     </div>
-
+    
     <div id="final" class="hidden">
         <p>Ура! Ты прошёл игру. Вот твой QR-код:</p>
         <img src="qr-code-placeholder.png" alt="QR-код">
     </div>
-
-    <script src="../script.js"></script> <!-- Подключение JavaScript -->
+    
+    <script src="script.js"></script>
 </body>
 </html>
