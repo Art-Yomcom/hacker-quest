@@ -35,3 +35,47 @@ function checkChatGPT() {
         document.getElementById("final").classList.remove("hidden");
     }
 }
+
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+// Устанавливаем размеры канваса на всю страницу
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Символы, используемые в потоке (можно поменять)
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const charArray = characters.split("");
+
+// Определяем колонки (каждая колонка отвечает за 1 поток символов)
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(0);
+
+// Функция отрисовки фона
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Полупрозрачный чёрный для затухания следов
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0F0"; // Ярко-зелёный цвет символов
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = charArray[Math.floor(Math.random() * charArray.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+
+// Запускаем анимацию с частотой 50 FPS
+setInterval(drawMatrix, 50);
+
+// Подстраиваем канвас при изменении размера окна
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
