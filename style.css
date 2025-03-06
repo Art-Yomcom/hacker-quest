@@ -40,7 +40,7 @@ body {
     height: 100%;
     background: black;
     overflow: visible;
-    z-index: -1;
+    z-index: 1;
     opacity: 1;
 }
 
