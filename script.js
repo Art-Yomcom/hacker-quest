@@ -7,8 +7,8 @@ document.getElementById("main-title").addEventListener("click", function() {
 
 function checkCode() {
     let input = document.getElementById("codeInput").value.trim().toUpperCase();
-    let button = document.getElementById("checkButton");
-    if (input === "ОТВЕТ") { 
+    let button = document.getElementById("checkButton"); // Находим верхнюю кнопку
+    if (input === "ОТВЕТ") {
         document.getElementById("caesarCipher").classList.remove("hidden");
         let caesar = document.getElementById("caesar-word");
         let decrypt = document.getElementById("decrypt-word");
@@ -17,29 +17,30 @@ function checkCode() {
         caesar.style.fontSize = "larger";
         decrypt.style.fontSize = "larger";
     } else {
-        button.classList.add("error");
-        setTimeout(() => button.classList.remove("error"), 2000);
+        button.classList.add("error"); // Краснеет верхняя кнопка
+        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
     }
 }
 
 function checkBinary() {
     let input = document.getElementById("binaryInput").value.trim().toUpperCase();
-    let button = document.getElementById("checkButton"); // Добавляем эту строку
+    let button = document.querySelector("#binaryCode button"); // Находим кнопку в блоке binaryCode
     if (input === "DECRYPT") {
         document.getElementById("chatGPT").classList.remove("hidden");
     } else {
-        button.classList.add("error");
-        setTimeout(() => button.classList.remove("error"), 2000); // Добавляем удаление ошибки через 2 секунды
+        button.classList.add("error"); // Краснеет кнопка в блоке binaryCode
+        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
     }
 }
+
 function checkChatGPT() {
-    let input = document.getElementById("chatInput").value.trim().toLowerCase(); // Получаем ввод и приводим к нижнему регистру
-    let button = document.getElementById("checkButton"); // Находим кнопку
-    if (input === "final-url.com") { // Проверяем ввод
-        document.getElementById("final").classList.remove("hidden"); // Если правильно, показываем финальный блок
+    let input = document.getElementById("chatInput").value.trim().toLowerCase();
+    let button = document.querySelector("#chatGPT button"); // Находим кнопку в блоке chatGPT
+    if (input === "final-url.com") {
+        document.getElementById("final").classList.remove("hidden");
     } else {
-        button.classList.add("error"); // Если неправильно, добавляем класс "error"
-        setTimeout(() => button.classList.remove("error"), 2000); // Убираем ошибку через 2 секунды
+        button.classList.add("error"); // Краснеет кнопка в блоке chatGPT
+        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
     }
 }
 
