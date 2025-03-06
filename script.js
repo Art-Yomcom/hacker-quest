@@ -7,18 +7,20 @@ document.getElementById("main-title").addEventListener("click", function() {
 
 function checkCode() {
     let input = document.getElementById("codeInput").value.trim().toUpperCase();
-    let button = document.getElementById("checkButton"); // Находим верхнюю кнопку
+    let button = document.getElementById("checkButton");
     if (input === "ОТВЕТ") {
         document.getElementById("caesarCipher").classList.remove("hidden");
+
+        // Находим слова
         let caesar = document.getElementById("caesar-word");
         let decrypt = document.getElementById("decrypt-word");
-        caesar.style.fontWeight = "bold";
-        decrypt.style.fontWeight = "bold";
-        caesar.style.fontSize = "larger";
-        decrypt.style.fontSize = "larger";
+
+        // Запускаем анимацию
+        caesar.style.animation = "highlight 5s forwards";
+        decrypt.style.animation = "highlight-decrypt 5s forwards";
     } else {
-        button.classList.add("error"); // Краснеет верхняя кнопка
-        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
+        button.classList.add("error");
+        setTimeout(() => button.classList.remove("error"), 2000);
     }
 }
 
@@ -91,3 +93,4 @@ window.addEventListener("resize", () => {
 document.getElementById("checkButton").addEventListener("click", checkCode);
 document.querySelector("#binaryCode button").addEventListener("click", checkBinary);
 document.querySelector("#chatGPT button").addEventListener("click", checkChatGPT);
+

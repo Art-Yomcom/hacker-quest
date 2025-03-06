@@ -65,10 +65,44 @@ button {
     transition: transform 0.1s, background 0.3s;
 }
 button:active {
-    transform: scale(0.95);
+    transform: scale(0.7);
     background: darkgreen;
 }
 button.error {
     background: red;
     border-color: darkred;
+    transform: scale(1.8);
+}
+
+@keyframes highlight {
+    0% {
+        color: green; /* Начальный цвет */
+        font-size: 16px; /* Начальный размер */
+    }
+    100% {
+        color: #32CD32; /* Конечный цвет для "Цезарь" */
+        font-size: 30px; /* Конечный размер */
+        font-weight: bold; /* Жирный шрифт */
+
+    }
+}
+
+@keyframes highlight-decrypt {
+    0% {
+        color: green; /* Начальный цвет */
+        font-size: 16px; /* Начальный размер */
+    }
+    100% {
+        color: #00FF00; /* Конечный цвет для "Дешифровать" */
+        font-size: 30px; /* Конечный размер */
+        font-weight: bold; /* Жирный шрифт */
+    }
+}
+
+#caesar-word {
+    /* Анимация не запускается сразу */
+}
+
+#decrypt-word {
+    /* Анимация не запускается сразу */
 }
