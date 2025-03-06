@@ -1,9 +1,4 @@
-let incorrectAttempts = [];
-let visitCount = localStorage.getItem("visitCount") || 0;
-visitCount++;
-localStorage.setItem("visitCount", visitCount);
-console.log("Посещений: " + visitCount);
-
+/* script.js */
 document.getElementById("main-title").addEventListener("click", function() {
     if (!document.getElementById("caesarCipher").classList.contains("hidden")) {
         document.getElementById("binaryCode").classList.remove("hidden");
@@ -15,13 +10,15 @@ function checkCode() {
     let button = document.getElementById("checkButton");
     if (input === "ОТВЕТ") { 
         document.getElementById("caesarCipher").classList.remove("hidden");
-        document.getElementById("caesar-word").style.fontWeight = "bold";
-        document.getElementById("decrypt-word").style.fontWeight = "bold";
+        let caesar = document.getElementById("caesar-word");
+        let decrypt = document.getElementById("decrypt-word");
+        caesar.style.fontWeight = "bold";
+        decrypt.style.fontWeight = "bold";
+        caesar.style.fontSize = "larger";
+        decrypt.style.fontSize = "larger";
     } else {
         button.classList.add("error");
         setTimeout(() => button.classList.remove("error"), 3000);
-        incorrectAttempts.push(input);
-        console.log("Ошибочные попытки: ", incorrectAttempts);
     }
 }
 
@@ -29,9 +26,6 @@ function checkBinary() {
     let input = document.getElementById("binaryInput").value.trim().toUpperCase();
     if (input === "DECRYPT") {
         document.getElementById("chatGPT").classList.remove("hidden");
-    } else {
-        incorrectAttempts.push(input);
-        console.log("Ошибочные попытки: ", incorrectAttempts);
     }
 }
 
@@ -39,8 +33,5 @@ function checkChatGPT() {
     let input = document.getElementById("chatInput").value.trim().toLowerCase();
     if (input === "final-url.com") {
         document.getElementById("final").classList.remove("hidden");
-    } else {
-        incorrectAttempts.push(input);
-        console.log("Ошибочные попытки: ", incorrectAttempts);
     }
 }
