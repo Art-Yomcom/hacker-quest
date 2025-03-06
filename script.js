@@ -13,12 +13,14 @@ document.getElementById("main-title").addEventListener("click", function() {
 
 function checkCode() {
     let input = document.getElementById("codeInput").value.trim().toUpperCase();
+    let button = document.getElementById("checkButton");
     if (input === "ОТВЕТ") {
         document.getElementById("caesarCipher").classList.remove("hidden");
         document.getElementById("caesar-word").style.fontWeight = "bold";
         document.getElementById("decrypt-word").style.fontWeight = "bold";
     } else {
-        document.getElementById("codeInput").classList.add("error");
+        button.classList.add("error");
+        setTimeout(() => button.classList.remove("error"), 3000);
         incorrectAttempts.push(input);
         console.log("Ошибочные попытки: ", incorrectAttempts);
     }
@@ -43,25 +45,3 @@ function checkChatGPT() {
         console.log("Ошибочные попытки: ", incorrectAttempts);
     }
 }
-
-// Функция для анимации матрицы
-const canvas = document.createElement("canvas");
-document.getElementById("matrix-background").appendChild(canvas);
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const columns = canvas.width / 20;
-const drops = Array.from({ length: columns }, () => Math.random() * canvas.height);
-
-function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "rgba(0, 255, 0, 0.5)";
-    ctx.font = "20px monospace";
-    drops.forEach((y, index) => {
-        const text = String.fromCharCode(0x30A0 + Math.random() * 96);
-        ctx.fillText(text, index * 20, y);
-        drops[index] = y > canvas.height || Math.random() > 0.95 ? 0 : y + 20;
-    });
-}
-setInterval(drawMatrix, 50);
