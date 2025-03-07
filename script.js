@@ -35,17 +35,6 @@ function checkBinary() {
     }
 }
 
-function checkChatGPT() {
-    let input = document.getElementById("chatInput").value.trim().toLowerCase();
-    let button = document.querySelector("#chatGPT button"); // Находим кнопку в блоке chatGPT
-    if (input === "final-url.com") {
-        document.getElementById("final").classList.remove("hidden");
-    } else {
-        button.classList.add("error"); // Краснеет кнопка в блоке chatGPT
-        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
-    }
-}
-
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -92,4 +81,3 @@ window.addEventListener("resize", () => {
 // Вешаем обработчики на кнопки
 document.getElementById("checkButton").addEventListener("click", checkCode);
 document.querySelector("#binaryCode button").addEventListener("click", checkBinary);
-document.querySelector("#chatGPT button").addEventListener("click", checkChatGPT);
