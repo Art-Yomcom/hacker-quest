@@ -31,7 +31,7 @@ function checkBinary() {
         document.getElementById("chatGPT").classList.remove("hidden");
     } else {
         button.classList.add("error"); // Краснеет кнопка в блоке binaryCode
-        setTimeout(() => button.classList.remove("error"), 2000); // Убираем красный через 2 секунды
+        setTimeout(() => button.classList.remove("error"), 1000); // Убираем красный через 2 секунды
     }
 }
 
@@ -80,4 +80,3 @@ window.addEventListener("resize", () => {
 });
 // Вешаем обработчики на кнопки
 document.getElementById("checkButton").addEventListener("click", checkCode);
-document.querySelector("#binaryCode button").addEventListener("click", checkBinary);
