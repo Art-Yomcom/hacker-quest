@@ -94,3 +94,16 @@ document.getElementById("checkButton").addEventListener("click", checkCode);
 document.querySelector("#binaryCode button").addEventListener("click", checkBinary);
 document.querySelector("#chatGPT button").addEventListener("click", checkChatGPT);
 
+let text = "Знаешь, я вот иногда хочу узнать у своего очень умного компьютерного друга что-то, но не могу подобрать к нему ключ, так сказать key. Да, я своего рода Виженер), а вот что я спрашиваю у него rjgzu://yqwuz-kqykl.biqmql.kxv";
+
+// Преобразуем текст в бинарный код (UTF-8)
+let binary = '';
+for (let i = 0; i < text.length; i++) {
+    let charCode = text.charCodeAt(i).toString(2); // Получаем код символа и переводим в двоичный вид
+    while (charCode.length < 8) {
+        charCode = '0' + charCode; // Дополняем до 8 бит
+    }
+    binary += charCode + ' '; // Добавляем пробел между байтами
+}
+
+console.log(binary);
